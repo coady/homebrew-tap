@@ -1,7 +1,7 @@
 class Pylucene < Formula
   desc "Python extension for accessing Java Lucene"
   homepage "https://lucene.apache.org/pylucene/index.html"
-  url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/7.4.0-rc1/pylucene-7.4.0-src.tar.gz"
+  url "https://www.apache.org/dist/lucene/pylucene/pylucene-7.4.0-src.tar.gz"
   sha256 "bf02da82d9bc4a578b33871699aff1125020266f2299f2d6d6008edaf48591ca"
 
   option "with-shared", "build jcc as a shared library"
