@@ -3,6 +3,10 @@ class Pylucene < Formula
   homepage "https://lucene.apache.org/pylucene/index.html"
   url "https://www.apache.org/dist/lucene/pylucene/pylucene-7.6.0-src.tar.gz"
   sha256 "13905bb57f69a5f9dd1ff9e7bf8d42de47a6022c393d66e6a2d68d9830f1a1b0"
+  devel do
+    url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/7.7.1-rc1/pylucene-7.7.1-src.tar.gz"
+    sha256 "67f84ad6faba900bb35a6a492453e96ea484249ea9e8576ee71facbd05bade84"
+  end
 
   option "with-shared", "build jcc as a shared library"
   option "without-python", "Build without python3 support"
