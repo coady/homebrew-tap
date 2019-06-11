@@ -1,8 +1,12 @@
 class Pylucene < Formula
   desc "Python extension for accessing Java Lucene"
   homepage "https://lucene.apache.org/pylucene/index.html"
-  url "https://www.apache.org/dist/lucene/pylucene/7.7.1/pylucene-7.7.1-src.tar.gz"
+  url "https://www.apache.org/dist/lucene/pylucene/pylucene-7.7.1-src.tar.gz"
   sha256 "67f84ad6faba900bb35a6a492453e96ea484249ea9e8576ee71facbd05bade84"
+  devel do
+    url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/8.1.1-rc1/pylucene-8.1.1-src.tar.gz"
+    sha256 "0900cb00aa7a246df9dc8e262b1fda9365182a77647a448aaceaa3900da7f3ad"
+  end
 
   option "with-shared", "build jcc as a shared library"
   option "without-python", "Build without python3 support"
@@ -34,7 +38,6 @@ class Pylucene < Formula
 
   test do
     Language::Python.each_python(build) do |python, version|
-      ENV.prepend_path "PYTHONPATH", HOMEBREW_PREFIX/"lib/python#{version}/site-packages"
       system python, "-c", "import lucene; assert lucene.initVM()"
     end
   end
