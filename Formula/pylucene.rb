@@ -4,8 +4,8 @@ class Pylucene < Formula
   url "https://www.apache.org/dist/lucene/pylucene/pylucene-7.7.1-src.tar.gz"
   sha256 "67f84ad6faba900bb35a6a492453e96ea484249ea9e8576ee71facbd05bade84"
   devel do
-    url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/8.1.1-rc1/pylucene-8.1.1-src.tar.gz"
-    sha256 "0900cb00aa7a246df9dc8e262b1fda9365182a77647a448aaceaa3900da7f3ad"
+    url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/8.1.1-rc2/pylucene-8.1.1-src.tar.gz"
+    sha256 "f8fa67b897539e3a105de964ead935fb09b4334cd237d6fe5c65b987e7f1703f"
   end
 
   option "with-shared", "build jcc as a shared library"
