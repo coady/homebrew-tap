@@ -18,7 +18,7 @@ class Pylucene < Formula
   depends_on "python@2" => :optional
 
   def install
-    ENV["JCC_JDK"] = HOMEBREW_PREFIX/"opt/adoptopenjdk" if OS.linux?
+    ENV["JCC_JDK"] = ENV.fetch("HOMEBREW_JDK", Language::Java.java_home) if OS.linux?
     if build.with? "shared"
       opoo "shared option requires python to be built with the same compiler: #{ENV.compiler}"
     else
