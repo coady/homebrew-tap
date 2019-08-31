@@ -13,25 +13,25 @@ class Pylucene < Formula
   option "with-python@2", "Build with python2 support"
 
   depends_on "ant" => :build
-  depends_on java: "1.8+"
+  depends_on :java => "1.8+"
   depends_on "python" => :recommended
   depends_on "python@2" => :optional
 
   def install
+    ENV["JCC_JDK"] = HOMEBREW_PREFIX/"opt/adoptopenjdk" if OS.linux?
+    if build.with? "shared"
+      opoo "shared option requires python to be built with the same compiler: #{ENV.compiler}"
+    else
+      ENV["NO_SHARED"] = "1"
+    end
+    ENV.deparallelize  # the jars must be built serially
     Language::Python.each_python(build) do |python, version|
       ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
-      jcc = "JCC=python#{version} -m jcc --arch #{MacOS.preferred_arch}"
-      if build.with? "shared"
-        jcc << " --shared"
-        opoo "shared option requires python to be built with the same compiler: #{ENV.compiler}"
-      else
-        ENV["NO_SHARED"] = "1"
-      end
-
       cd "jcc" do
         system python, *Language::Python.setup_install_args(prefix)
       end
-      ENV.deparallelize  # the jars must be built serially
+      jcc = "JCC=python#{version} -m jcc"
+      jcc << " --shared" if build.with? "shared"
       system "make", "all", "install", "INSTALL_OPT=--prefix #{prefix}", jcc, "ANT=ant", "PYTHON=python#{version}", "NUM_FILES=8"
     end
   end
