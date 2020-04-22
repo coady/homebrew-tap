@@ -8,13 +8,10 @@ class Pylucene < Formula
     sha256 "2d135f4f412673ed580a00a1191dcaf5f179f4c2bb563c91359e1c9cccaa5224"
   end
 
-  option "without-python", "Build without python support"
-  option "with-python@3.8", "Build with python@3.8 support"
-
   depends_on "ant" => :build
   depends_on :java => "1.8+"
-  depends_on "python" => :recommended
-  depends_on "python@3.8" => :optional
+  depends_on "python@3.8" => :recommended
+  depends_on "python" => :optional
 
   def install
     ENV["JCC_JDK"] = ENV.fetch("HOMEBREW_JDK", Language::Java.java_home)
