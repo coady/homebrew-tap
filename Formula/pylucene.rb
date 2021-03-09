@@ -1,12 +1,8 @@
 class Pylucene < Formula
   desc "Python extension for accessing Java Lucene"
   homepage "https://lucene.apache.org/pylucene/index.html"
-  url "https://downloads.apache.org/lucene/pylucene/pylucene-8.6.1-src.tar.gz"
-  sha256 "194f2238912973c8cf78957da8643cc2ec0e5a03c49237abfd35ecedd70107e6"
-  head do
-    url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/8.8.1-rc1/pylucene-8.8.1-src.tar.gz"
-    sha256 "922e44c974f152eda124d2ecba5d10c5f3b2fc7229eb02ec656b3ecda8895c8b"
-  end
+  url "https://downloads.apache.org/lucene/pylucene/pylucene-8.8.1-src.tar.gz"
+  sha256 "922e44c974f152eda124d2ecba5d10c5f3b2fc7229eb02ec656b3ecda8895c8b"
 
   depends_on "ant" => :build
   depends_on "openjdk"
