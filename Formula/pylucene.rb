@@ -3,6 +3,10 @@ class Pylucene < Formula
   homepage "https://lucene.apache.org/pylucene/index.html"
   url "https://downloads.apache.org/lucene/pylucene/pylucene-8.8.1-src.tar.gz"
   sha256 "922e44c974f152eda124d2ecba5d10c5f3b2fc7229eb02ec656b3ecda8895c8b"
+  head do
+    url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/8.9.0-rc1/pylucene-8.9.0-src.tar.gz"
+    sha256 "bb13ac205bf75ff191b649e30ed480ec7723cc8a2114106eb6963c28ad5bf8fa"
+  end
 
   depends_on "ant" => :build
   depends_on "openjdk"
