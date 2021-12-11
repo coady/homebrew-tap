@@ -13,5 +13,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - run: brew install ./Formula/pylucene.rb
+    - run: brew install --cask temurin
+    - run: brew install -v ./Formula/pylucene.rb --head
     - run: brew test pylucene
