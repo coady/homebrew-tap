@@ -13,6 +13,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - run: brew install --cask temurin
+    # TODO: revert to temurin when pylucene's gradle version supports java 18
+    - run: brew install --cask adoptopenjdk/openjdk/adoptopenjdk16
     - run: brew install -v ./Formula/pylucene.rb
     - run: brew test pylucene
