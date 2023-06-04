@@ -1,8 +1,9 @@
 name: build
 
 on:
+  workflow_dispatch:
   push:
-    branches: [main]
+    branches: [rc]
   pull_request:
     branches: [main]
   schedule:
@@ -13,6 +14,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - run: brew install --cask temurin
+    # local temurin to pin version @19 for gradle support
+    - run: brew install --cask -v ./Formula/temurin.rb
     - run: brew install -v ./Formula/pylucene.rb
     - run: brew test pylucene

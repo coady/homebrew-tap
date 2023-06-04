@@ -1,11 +1,9 @@
 class Pylucene < Formula
   desc "Python extension for accessing Java Lucene"
   homepage "https://lucene.apache.org/pylucene/index.html"
-  url "https://downloads.apache.org/lucene/pylucene/pylucene-8.11.0-src.tar.gz"
-  sha256 "70894afe0a1d48efa404adb2a4d6f6f951d9f3d193027e649c536bbf1b9304aa"
+  url "https://downloads.apache.org/lucene/pylucene/pylucene-9.6.0-src.tar.gz"
+  sha256 "b440ba91af14231e9944346dd47fa72ec64349e81eb89921789ffda05d40c10e"
 
-  depends_on "ant" => :build
-  depends_on "openjdk"
   depends_on "python" => :recommended
   depends_on "python@3.10" => :optional
 
@@ -19,10 +17,9 @@ class Pylucene < Formula
       system "python3", *Language::Python.setup_install_args(prefix)
     end
     system "make", "all", "install",
-      "ANT=ant",
       "PYTHON=python#{version}",
       "JCC=python#{version} -m jcc",
-      "NUM_FILES=10",
+      "NUM_FILES=16"
       "INSTALL_OPT=--prefix #{prefix}"
   end
 
