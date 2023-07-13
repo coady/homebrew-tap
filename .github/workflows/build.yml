@@ -3,7 +3,7 @@ name: build
 on:
   workflow_dispatch:
   push:
-    branches: [rc]
+    branches: [main]
   pull_request:
     branches: [main]
   schedule:

@@ -1,8 +1,8 @@
 class Pylucene < Formula
   desc "Python extension for accessing Java Lucene"
   homepage "https://lucene.apache.org/pylucene/index.html"
-  url "https://downloads.apache.org/lucene/pylucene/pylucene-9.6.0-src.tar.gz"
-  sha256 "b440ba91af14231e9944346dd47fa72ec64349e81eb89921789ffda05d40c10e"
+  url "https://downloads.apache.org/lucene/pylucene/pylucene-9.7.0-src.tar.gz"
+  sha256 "94193d0a5e87d32d6d21fc2a59a76a2e8c8afb5e8e6b24c9f50755ae17a81092"
 
   depends_on "python" => :recommended
   depends_on "python@3.10" => :optional
