@@ -3,9 +3,12 @@ class Pylucene < Formula
   homepage "https://lucene.apache.org/pylucene/index.html"
   url "https://downloads.apache.org/lucene/pylucene/pylucene-9.7.0-src.tar.gz"
   sha256 "94193d0a5e87d32d6d21fc2a59a76a2e8c8afb5e8e6b24c9f50755ae17a81092"
+  head do
+    url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/9.10.0-rc1/pylucene-9.10.0-src.tar.gz"
+    sha256 "f41807c145cf57c8cc90134faa7e990d95c8a41f53d4b7478acec79bef64ece1"
+  end
 
-  depends_on "python@3.12" => :recommended
-  depends_on "python" => :optional
+  depends_on "python"
 
   def install
     ENV["JCC_JDK"] = ENV.fetch("HOMEBREW_JDK", Language::Java.java_home)
@@ -18,8 +21,8 @@ class Pylucene < Formula
       system "python", *Language::Python.setup_install_args(prefix)
     end
     system "make", "all", "install",
-      "PYTHON=python#{version}",
-      "JCC=python#{version} -m jcc",
+      "PYTHON=python",
+      "JCC=python -m jcc",
       "NUM_FILES=16",
       "INSTALL_OPT=--prefix #{prefix} --install-dir #{packages}"
   end

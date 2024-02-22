@@ -12,7 +12,6 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v4
-    # local temurin to pin version @19 for gradle support
-    - run: brew install --cask -v ./Formula/temurin.rb
-    - run: brew install -v ./Formula/pylucene.rb
+    - run: brew install temurin
+    - run: brew install -v ./Formula/pylucene.rb --head
     - run: brew test pylucene
