@@ -13,5 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: brew install temurin
-    - run: brew install -v ./Formula/pylucene.rb --head
+    - run: brew install -v ./Formula/pylucene.rb
     - run: brew test pylucene
