@@ -1,8 +1,8 @@
 class Pylucene < Formula
   desc "Python extension for accessing Java Lucene"
   homepage "https://lucene.apache.org/pylucene/index.html"
-  url "https://downloads.apache.org/lucene/pylucene/pylucene-9.10.0-src.tar.gz"
-  sha256 "f41807c145cf57c8cc90134faa7e990d95c8a41f53d4b7478acec79bef64ece1"
+  url "https://downloads.apache.org/lucene/pylucene/pylucene-9.12.0-src.tar.gz"
+  sha256 "5d7223e87883e64ec0cd3e62a983a4bf50dce68c997081c8989e233b90cee115"
 
   depends_on "python"
 
@@ -14,7 +14,7 @@ class Pylucene < Formula
     packages = lib/"python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", packages
     cd "jcc" do
-      system "pip install --prefix #{prefix} build"
+      system "pip install --prefix #{prefix} build setuptools"
       system "python -m build -nw"
       system "pip install --prefix #{prefix} dist/JCC-*.whl"
     end
