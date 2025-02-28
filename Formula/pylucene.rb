@@ -16,7 +16,7 @@ class Pylucene < Formula
     cd "jcc" do
       system "pip install --prefix #{prefix} build setuptools"
       system "python -m build -nw"
-      system "pip install --prefix #{prefix} dist/JCC-*.whl"
+      system "pip install --prefix #{prefix} dist/*.whl"
     end
     system "make", "all", "install",
       "PYTHON=python",
