@@ -5,6 +5,7 @@ class Pylucene < Formula
   sha256 "100c3d61d6799ac16b7b8c1826cddf07fb1715141ebdb0d7b8119cdd96b24574"
 
   depends_on "python"
+  depends_on "openjdk" => :build
 
   def install
     ENV["JCC_JDK"] = ENV.fetch("HOMEBREW_JDK", Language::Java.java_home)
