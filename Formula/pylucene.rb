@@ -3,9 +3,13 @@ class Pylucene < Formula
   homepage "https://lucene.apache.org/pylucene/index.html"
   url "https://downloads.apache.org/lucene/pylucene/pylucene-10.0.0-src.tar.gz"
   sha256 "100c3d61d6799ac16b7b8c1826cddf07fb1715141ebdb0d7b8119cdd96b24574"
+  head do
+    url "https://dist.apache.org/repos/dist/dev/lucene/pylucene/10.3.0-rc1/pylucene-10.3.0-src.tar.gz"
+    sha256 "fdbdc098de21c6982e61e3264157e03cbdaddc169a2f90cadec8a0ceb2462406"
+  end
 
   depends_on "python"
-  depends_on "openjdk" => :build
+  depends_on "openjdk@21" => :build
 
   def install
     ENV["JCC_JDK"] = ENV.fetch("HOMEBREW_JDK", Language::Java.java_home)

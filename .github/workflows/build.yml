@@ -12,4 +12,4 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v5
-    - run: brew install -v ./Formula/pylucene.rb
+    - run: HOMEBREW_JDK=//opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home brew install --build-from-source -v pylucene
