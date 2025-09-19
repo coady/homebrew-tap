@@ -3,7 +3,7 @@ name: build
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [rc]
   pull_request:
     branches: [main]
 
@@ -12,4 +12,4 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v5
-    - run: HOMEBREW_JDK=//opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home brew install --build-from-source -v pylucene
+    - run: HOMEBREW_JDK=//opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home brew install -v --build-from-source coady/homebrew-tap/pylucene
