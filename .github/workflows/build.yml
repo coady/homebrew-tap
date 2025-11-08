@@ -8,8 +8,14 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  macos:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v5
-    - run: HOMEBREW_JDK=//opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home brew install --build-from-source -v pylucene
+    - run: HOMEBREW_JDK=$(brew --prefix)/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home brew install --build-from-source -v coady/homebrew-tap/pylucene
+
+  ubuntu:
+    runs-on: ubuntu-latest
+    container: homebrew/brew
+    steps:
+    - run: cd $(brew --prefix)/opt && ln -s openjdk@21 temurin
+    - run: HOMEBREW_JDK=$(brew --prefix)/opt/temurin/libexec brew install --build-from-source -v coady/homebrew-tap/pylucene
