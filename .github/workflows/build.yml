@@ -3,7 +3,7 @@ name: build
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [dev]
   pull_request:
     branches: [main]
 
@@ -11,11 +11,11 @@ jobs:
   macos:
     runs-on: macos-latest
     steps:
-    - run: HOMEBREW_JDK=$(brew --prefix)/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home brew install --build-from-source -v coady/homebrew-tap/pylucene
+    - run: HOMEBREW_JDK=$(brew --prefix)/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home brew install -v coady/tap/pylucene
 
   ubuntu:
     runs-on: ubuntu-latest
     container: homebrew/brew
     steps:
     - run: cd $(brew --prefix)/opt && ln -s openjdk@21 temurin
-    - run: HOMEBREW_JDK=$(brew --prefix)/opt/temurin/libexec brew install --build-from-source -v coady/homebrew-tap/pylucene
+    - run: HOMEBREW_JDK=$(brew --prefix)/opt/temurin/libexec brew install -v coady/tap/pylucene
