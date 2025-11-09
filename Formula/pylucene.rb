@@ -28,10 +28,9 @@ class Pylucene < Formula
       "JCC=python -m jcc",
       "NUM_FILES=16",
       "INSTALL_OPT=--prefix #{prefix} --install-dir #{packages}"
-      "MODERN_PACKAGING=true"
   end
 
   test do
-    system "python", "-c", "import lucene; assert lucene.initVM()"
+    system "python3", "-c", "import lucene; assert lucene.initVM()"
   end
 end
